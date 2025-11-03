@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int smallestNumber(vector<int>arr)
+{
+    int n=arr.size();
+     int ans=arr[0];
+     
+     for(int i=1;i<n;i++)
+     {
+         if(arr[i]<=ans)
+         {
+             ans=arr[i];
+         }
+     }
+     return ans;
+}
+
+int main()
+{
+    string s;
+    getline(cin,s);
+    
+    stringstream ss(s);
+    
+    vector<int>arr;
+    int num;
+    char c;
+    
+    while(ss>>num){
+        arr.push_back(num);
+        ss>>c;
+    }
+    cout<<"output: ";
+    for(auto a:arr)
+    {
+        cout<<a<<" ";
+    }
+    
+     int result=smallestNumber(arr);
+     cout << "\nSmallest number: " << result << endl;
+     
+     return 0;
+    
+}
