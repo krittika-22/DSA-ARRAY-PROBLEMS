@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int secondSmallest(vector<int>arr)
+{
+    int n=arr.size();
+
+    sort(arr.begin(),arr.end());
+    int smallest=arr[0];
+    int secondsmallest=INT_MAX;
+    
+    for(int i=1;i<n;i++)
+    {
+        if(arr[i]!=arr[0])
+        {
+            secondsmallest=arr[i];
+            break;
+        }
+    }
+    return secondsmallest;
+}
+
+int main(){
+    
+    string s;
+    getline(cin,s);
+    
+    stringstream ss(s);
+    
+    vector <int> arr;
+    int num;
+    while(ss>>num){
+        arr.push_back(num);
+    }
+    
+    cout<<"output ";
+    for(auto a:arr)
+    {
+        cout<<a<<" ";
+    }
+    
+    int result=secondSmallest(arr);
+    cout<<"\nthe second smallest element is:"<<result<<endl;
+    
+
+    return 0;
+    
+}
