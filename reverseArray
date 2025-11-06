@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+ void reverseArray(vector<int> &arr)
+ {
+     int n=arr.size();
+     int start=0;
+     int end=n-1;
+     
+     while(start<=end)
+     {
+         int temp=arr[start];
+         arr[start]=arr[end];
+         arr[end]=temp;
+         
+         start++;
+         end--;
+        
+     }
+ }
+
+int main(){
+    
+    string s;
+    getline(cin,s);
+    
+    if(s.front()=='[' && s.back()==']')
+    {
+       s=s.substr(1,s.size()-2);
+    } 
+    stringstream ss(s);
+    
+    vector<int>arr;
+    
+    int num;
+    char ch;
+    
+    while(ss>>num)
+    {
+        arr.push_back(num);
+        ss>>ch;
+    }
+    
+    cout<<"\n THE ORIGINAL ARRAY: ";
+    for(auto a:arr)
+    {
+        cout<<a<<" ";
+    }
+    
+    reverseArray(arr);
+    cout<<"\n REVERSED ARRAY: ";
+    for(auto a:arr)
+    {
+        cout<<a<<" ";
+    }
+    
+    return 0;
+}
